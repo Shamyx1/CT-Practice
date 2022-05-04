@@ -12,15 +12,13 @@ public class GameFrame extends JFrame implements ActionListener{
 
         Thread thread1 = new Thread(panel);
         thread1.run();
+        panel2.setPlayerNumber(2);
+        Thread myThread = new Thread(panel2);
+        myThread.run();
 //        GamePanel panel2 = new GamePanel(2);
 //        Thread thread2 = new Thread(panel2);
 //        panel2.setPlayerNumber(2);
 //        thread2.run();
-
-
-        panel2.setPlayerNumber(2);
-        Thread myThread = new Thread(panel2);
-        myThread.run();
         this.add(panel, BorderLayout.WEST);
         this.add(panel2,BorderLayout.EAST);
         this.setTitle("Snake");
@@ -80,10 +78,6 @@ public class GameFrame extends JFrame implements ActionListener{
                             panel2.direction = 'D';
                         }
                         break;
-
-                }
-
-                switch (e.getKeyCode()) {
                     case KeyEvent.VK_A:
                         if (panel.direction != 'R') {
                             panel.direction = 'L';
@@ -104,9 +98,8 @@ public class GameFrame extends JFrame implements ActionListener{
                             panel.direction = 'D';
                         }
                         break;
+
                 }
-
-
         }
     }
 }
